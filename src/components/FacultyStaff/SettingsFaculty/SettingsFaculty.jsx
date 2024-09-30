@@ -73,7 +73,7 @@ export function SettingsFaculty() {
     await delay(200);
     try {
       // Directly update user verification status
-      await axios.post('/api/update-verification-status', { userId });
+      await axios.post('https://egrade-backend.onrender.com/api/update-verification-status', { userId });
       toast.success('Email verified and status updated successfully');
       resetCode();
       setCodeSent(false);
@@ -182,7 +182,7 @@ export function SettingsFaculty() {
 
   const validateCurrentPassword = async () => {
     try {
-      const response = await axios.post('/api/validate-current-password-facultyStaff', { 
+      const response = await axios.post('https://egrade-backend.onrender.com/api/validate-current-password-facultyStaff', { 
         userId,
         currentPassword: formData.currentPassword 
       });

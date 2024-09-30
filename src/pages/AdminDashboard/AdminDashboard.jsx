@@ -20,7 +20,7 @@ import { HeaderDashboard } from '../../components/HeaderDashboard/HeaderDashboar
 import { ActiveButtonContext } from '../../utils/contexts/ActiveButtonContext';
 import { usePath } from '../../utils/contexts/PathContext';
 import { jwtDecode } from 'jwt-decode'; 
-import axios from '../../axiosConfig';
+import axios from 'axios';
 import useGetAdminDetails from '../../utils/hooks/adminHooks/useGetAdminDetails';
 
 export function AdminDashboard() {
@@ -139,9 +139,9 @@ export function AdminDashboard() {
   useEffect(() => {
     const fetchUserProfileImage = async () => {
       try {
-        const response = await axios.get(`/api/get-admin-details/${userId}`);
+        const response = await axios.get(`https://egrade-backend.onrender.com/api/get-admin-details/${userId}`);
         const profileImageUrl = response.data.user_profile;
-        const backendUrl = 'http://localhost:5000';
+        const backendUrl = 'https://egrade-backend.onrender.com';
         const fullProfileImageUrl = profileImageUrl
           ? `${backendUrl}${profileImageUrl.startsWith('/uploads') ? '' : '/uploads/user-profiles/'}${profileImageUrl}` 
           : userImg;
