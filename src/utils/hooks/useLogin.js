@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 
 const useLogin = () => {
   const [error, setError] = useState("");
@@ -14,7 +14,7 @@ const useLogin = () => {
     try {
       await delay(300);
       
-      const url = "http://localhost:5000/api/login";
+      const url = `${process.env.REACT_APP_API_URL}/api/login`;
       const response = await axios.post(url, data);
       const { token, title } = response.data;
 
