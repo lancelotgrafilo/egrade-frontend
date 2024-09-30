@@ -5,14 +5,12 @@ const useLogin = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   
-  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   
   const login = async (data, navigate) => {
     setLoading(true);
     setError("");
 
     try {
-      await delay(100);
       
       const url = `https://egrade-backend.onrender.com/api/login`;
       const response = await axios.post(url, data);
