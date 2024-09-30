@@ -117,7 +117,7 @@ export function Settings() {
   useEffect(() => {
     if (currentUserDetails && Object.keys(currentUserDetails).length > 0) {
       // console.log('Current User Details:', currentUserDetails);
-      const backendUrl = 'http://localhost:5000';
+      const backendUrl = 'https://egrade-backend.onrender.com';
       const fullProfileImageUrl = currentUserDetails.user_profile
         ? `${backendUrl}${currentUserDetails.user_profile.startsWith('/uploads') ? '' : '/uploads/user-profiles/'}${currentUserDetails.user_profile}`
         : userProfile;

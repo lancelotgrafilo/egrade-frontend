@@ -152,7 +152,7 @@ export function SettingsFaculty() {
 
   useEffect(() => {
     if (userDetails) {
-      const backendUrl = 'http://localhost:5000';
+      const backendUrl = 'https://egrade-backend.onrender.com';
       const fullProfileImageUrl = userDetails.user_profile
         ? `${backendUrl}${userDetails.user_profile.startsWith('/uploads') ? '' : '/uploads/user-profiles/'}${userDetails.user_profile}`
         : userProfile;
