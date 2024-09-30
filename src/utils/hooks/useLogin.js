@@ -14,7 +14,7 @@ const useLogin = () => {
     try {
       await delay(300);
       
-      const url = `${process.env.REACT_APP_API_URL}/api/login`;
+      const url = `https://egrade-backend.onrender.com/api/login`;
       const response = await axios.post(url, data);
       const { token, title } = response.data;
 
