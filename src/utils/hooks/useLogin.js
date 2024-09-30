@@ -15,12 +15,12 @@ const useLogin = () => {
       const url = `https://egrade-backend.onrender.com/api/login`;
       const response = await axios.post(url, data);
       const { token, title } = response.data;
-      console.log('API Response:', response.data);
+      
       if (token && title ) {
         // Store token and title in localStorage
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify({ title }));
-        console.log("User data saved to localStorage:", { token, title }); // Debugging line
+        
 
         // Re-check that the token and title have been saved correctly
         const savedToken = localStorage.getItem("token");
