@@ -12,12 +12,12 @@ const useLogin = () => {
     setError("");
 
     try {
-      await delay(300);
+      await delay(100);
       
       const url = `https://egrade-backend.onrender.com/api/login`;
       const response = await axios.post(url, data);
       const { token, title } = response.data;
-
+      console.log('API Response:', response.data);
       if (token && title ) {
         // Store token and title in localStorage
         localStorage.setItem("token", token);
@@ -52,8 +52,10 @@ const useLogin = () => {
           }
         } else {
           setError("Failed to save user data correctly");
+          
         }
       } else {
+        console.log('Missing token or title:', { token, title });
         setError("Login response does not contain token or title");
       }
     } catch (error) {
