@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 // Set the base URL for all axios requests
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+axios.defaults.baseURL = "https://egrade-backend.onrender.com";
 
 export default axios;
