@@ -20,7 +20,7 @@ import { HeaderDashboard } from '../../components/HeaderDashboard/HeaderDashboar
 import { ActiveButtonContext } from '../../utils/contexts/ActiveButtonContext';
 import { usePath } from '../../utils/contexts/PathContext';
 import { jwtDecode } from 'jwt-decode'; 
-import axios from 'axios';
+import axios from '../../axiosConfig';
 import useGetAdminDetails from '../../utils/hooks/adminHooks/useGetAdminDetails';
 
 export function AdminDashboard() {
