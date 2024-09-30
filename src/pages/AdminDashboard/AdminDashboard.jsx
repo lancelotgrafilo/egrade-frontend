@@ -92,10 +92,10 @@ export function AdminDashboard() {
   const handleConfirmLogout = async () => {
     try {
       // Update isActive to false
-      await axios.patch(`/api/update-admin-status/${userId}`, { isActive: false });
+      await axios.patch(`https://egrade-backend.onrender.com/api/update-admin-status/${userId}`, { isActive: false });
   
       // Call the server-side API to log the activity
-      await axios.post('/api/logout-activity', { 
+      await axios.post('https://egrade-backend.onrender.com/api/logout-activity', { 
         userID: id, 
         activityDescription: 'logged out'
       });
