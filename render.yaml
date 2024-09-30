@@ -1,4 +1,4 @@
 static:
   routes:
     - src: /.*  
-      dest: /index.html
+      dest: dist/index.html
