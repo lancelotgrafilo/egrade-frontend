@@ -452,7 +452,7 @@
     width: 80px;
     margin-top: 8px;
   }
-  
+
   .modal {
     width: 300px; /* Adjust width for tablets */
   }
@@ -506,7 +506,7 @@
   .userImg {
     height: 40px;
     width: 40px;
-    margin-left: 24px;
+    margin-right: 17px;
   }
 
   .userInfo {
