@@ -208,22 +208,20 @@
   font-weight: 600;
 }
 
-.userContainer {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 8px;
-  margin-top: 12px;
-}
-
 .userImgContainer {
   width: 70px;
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.userImg {
+  width: auto;
+  height: 50px;
+  padding-left: 16px;
+  margin-top: -8px;
+  transition: all .3s ease;
 }
 
 .userImg {
