@@ -170,8 +170,6 @@ export function Student() {
     URL.revokeObjectURL(url);
   };
 
-  
-
   const openConfirmDeleteModal = (_id) => {
     setStudentToDelete(_id);
     setConfirmDeleteModalOpen(true);
