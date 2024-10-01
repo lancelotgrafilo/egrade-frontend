@@ -506,7 +506,7 @@
   .userImg {
     height: 40px;
     width: 40px;
-    margin-right: 17px;
+    margin-right: -14px;
   }
 
   .sidebar.active .userImg{
