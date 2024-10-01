@@ -208,6 +208,7 @@
   font-weight: 600;
 }
 
+/* User Image Container */
 .userImgContainer {
   width: 70px;
   height: 70px;
@@ -218,24 +219,30 @@
 
 /* User Image Styles */
 .userImg {
-  width: 50px; /* Keeping the width consistent */
-  height: 50px; /* Keeping the height consistent */
+  width: 50px; /* Initial width */
+  height: 50px; /* Initial height */
   object-fit: cover; /* Ensure the image covers the area */
   border-radius: 50%; /* Makes the image circular */
   transition: all 0.3s ease;
 }
 
-.sidebar.active .userImg{
-  margin-left: -32px;
-}
-
+/* User Information Styles */
 .userInfo {
-  padding-left: 4px;
-  font-size: 18px;
+  padding-left: 4px; /* Initial padding */
+  font-size: 18px; /* Initial font size */
   font-weight: bold;
   line-height: 1.5rem;
   transition: opacity 0.3s ease;
-  margin-left: -24px;
+  margin-left: -24px; /* Initial margin */
+}
+
+.userStatus {
+  color: #fafafa; /* Initial color */
+  font-size: 12px; /* Initial font size */
+}
+
+.sidebar.active .userImg{
+  margin-left: -32px;
 }
 
 .userInfo p {
@@ -449,14 +456,25 @@
   }
 
   .userContainer {
-    height: 60px;
-    margin-top: 8px;
-    gap: 6px;
+    height: 60px; /* Height for tablet screens */
+    margin-top: 8px; /* Margin for spacing */
+    gap: 6px; /* Space between elements */
   }
 
   .userImg {
-    height: 32px;
-    margin-left: -12px;
+    height: 40px; /* Adjusted height for tablets */
+    width: 40px; /* Adjusted width for tablets */
+    margin-left: -12px; /* Adjusted margin */
+  }
+
+  .userInfo {
+    padding-left: 4px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size for better readability */
+    margin-left: -18px; /* Adjust margin */
+  }
+
+  .userStatus {
+    font-size: 10px; /* Adjusted user status size */
   }
 
   .sidebar.active .userImg {
@@ -464,15 +482,6 @@
     padding-left: 0;
   }
 
-  .userInfo {
-    padding-left: 0px;
-    margin-left: -18px;
-    font-size: 16px;
-  }
-  
-  .userStatus {
-    font-size: 10px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -521,28 +530,28 @@
   }
 
   .userContainer {
-    height: 60px;
-    margin-top: 8px;
-    gap: 6px;
+    height: 50px; /* Height for mobile screens */
+    margin-top: 6px; /* Adjust margin */
+    gap: 4px; /* Adjust space between elements */
   }
 
   .userImg {
     height: 32px; /* Smaller height for mobile */
     width: 32px; /* Smaller width for mobile */
-    margin-left: -12px; /* Keep margin adjustments */
+    margin-left: -8px; /* Adjusted margin for mobile */
   }
 
   .userInfo {
-    font-size: 14px; /* Adjust font size */
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
 
   .userStatus {
-    font-size: 8px; /* Adjust user status size for smaller screens */
+    font-size: 8px; /* Smaller font size for mobile */
   }
 
   #btn {
-    right: 10px;
-    width: 24px;
+    right: 10px; /* Adjust button position */
+    width: 24px; /* Adjust button width */
   }
 
   .modal {
