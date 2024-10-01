@@ -208,19 +208,17 @@
   font-weight: 600;
 }
 
-
 .userContainer {
   width: 100%;
   height: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-bottom: 8px;
   margin-top: 12px;
 }
 
-
-/* User Image Container */
 .userImgContainer {
   width: 70px;
   height: 70px;
@@ -229,32 +227,30 @@
   justify-content: center;
 }
 
-/* User Image Styles */
 .userImg {
-  width: 50px; /* Initial width */
-  height: 50px; /* Initial height */
-  object-fit: cover; /* Ensure the image covers the area */
-  border-radius: 50%; /* Makes the image circular */
-  transition: all 0.3s ease;
-}
-
-/* User Information Styles */
-.userInfo {
-  padding-left: 4px; /* Initial padding */
-  font-size: 18px; /* Initial font size */
-  font-weight: bold;
-  line-height: 1.5rem;
-  transition: opacity 0.3s ease;
-  margin-left: -24px; /* Initial margin */
-}
-
-.userStatus {
-  color: #fafafa; /* Initial color */
-  font-size: 12px; /* Initial font size */
+  width: 50px;
+  height: 50px;
+  object-fit:cover;
+  margin-left: 70px;
+  border-radius: 50%;
+  transition: all .3s ease;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .sidebar.active .userImg{
   margin-left: -32px;
+}
+
+.userInfo {
+  padding-left: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.5rem;
+  transition: opacity 0.3s ease;
+  margin-left: -24px;
 }
 
 .userInfo p {
@@ -453,47 +449,8 @@
   }
 
   .modal {
-    width: 50%; /* Set width as a percentage to be more flexible */
-    padding: 15px; /* Adjust padding to fit smaller screens */
+    width: 300px; /* Adjust width for tablets */
   }
-
-  .logo {
-    gap: 16px;
-    padding-left: 8px;
-  }
-
-  .sidebar .logo .eGradeLogo{
-    width: 80px;
-    margin-top: 8px;
-  }
-
-  .userContainer {
-    height: 60px; /* Height for tablet screens */
-    margin-top: 8px; /* Margin for spacing */
-    gap: 6px; /* Space between elements */
-  }
-
-  .userImg {
-    height: 40px; /* Adjusted height for tablets */
-    width: 40px; /* Adjusted width for tablets */
-    margin-left: -12px; /* Adjusted margin */
-  }
-
-  .userInfo {
-    padding-left: 4px; /* Adjust padding */
-    font-size: 16px; /* Adjust font size for better readability */
-    margin-left: -18px; /* Adjust margin */
-  }
-
-  .userStatus {
-    font-size: 10px; /* Adjusted user status size */
-  }
-
-  .sidebar.active .userImg {
-    vertical-align: middle;
-    padding-left: 0;
-  }
-
 }
 
 @media (max-width: 480px) {
@@ -531,39 +488,28 @@
     width: calc(100% - 150px);
   }
 
-  .logo {
-    gap: 16px;
-    padding-left: 8px;
-  }
-
-  .sidebar .logo .eGradeLogo{
-    width: 80px;
-    margin-top: 8px;
-  }
-
   .userContainer {
-    height: 50px; /* Height for mobile screens */
-    margin-top: 6px; /* Adjust margin */
-    gap: 4px; /* Adjust space between elements */
+    height: 50px;
+    margin-top: 5px;
   }
 
   .userImg {
-    height: 32px; /* Smaller height for mobile */
-    width: 32px; /* Smaller width for mobile */
-    margin-left: -8px; /* Adjusted margin for mobile */
+    height: 40px;
+    width: 40px;
+    margin-left: 32px;
   }
 
   .userInfo {
-    font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 14px;
   }
 
   .userStatus {
-    font-size: 8px; /* Smaller font size for mobile */
+    font-size: 10px;
   }
 
   #btn {
-    right: 10px; /* Adjust button position */
-    width: 24px; /* Adjust button width */
+    right: 10px;
+    width: 24px;
   }
 
   .modal {
