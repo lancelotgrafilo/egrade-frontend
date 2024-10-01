@@ -13,6 +13,7 @@ import usePostSubjects from '../../utils/hooks/subjectsHooks/usePostSubjects';
 import useEditSubject from '../../utils/hooks/subjectsHooks/useEditSubject';
 import useDeleteSubject from '../../utils/hooks/subjectsHooks/useDeleteSubject';
 import useUploadSubjectCSV from '../../utils/hooks/subjectsHooks/useUploadSubjectCSV';
+import axios from "axios";
 
 export function Subjects() {
   const [isAddModalOpen, setModalOpen] = useState(false);
@@ -44,7 +45,7 @@ export function Subjects() {
   // Fetch selected subject data for editing
   useEffect(() => {
     if (isEditModalOpen && selectedSubjectId) {
-      fetch(`https://egrade-backend.onrender.com/api/get_subject/${selectedSubjectId}`)
+      axios.get(`https://egrade-backend.onrender.com/api/get_subject/${selectedSubjectId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
