@@ -47,15 +47,17 @@ export function Subjects() {
     if (isEditModalOpen && selectedSubjectId) {
       axios.get(`https://egrade-backend.onrender.com/api/get_subject/${selectedSubjectId}`)
         .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
+          if (response.status !== 200) {
+            throw new Error(`Error: ${response.status} - ${response.statusText}`);
           }
-          return response.json();
+          setSelectedSubject(response.data);
         })
-        .then((data) => setSelectedSubject(data))
-        .catch((error) => console.error('Error fetching Subject:', error));
+        .catch((error) => {
+          console.error('Error fetching Subject:', error.message || error);
+        });
     }
   }, [isEditModalOpen, selectedSubjectId]);
+  
 
   const handleEditSave = async (e) => {
     e.preventDefault();
