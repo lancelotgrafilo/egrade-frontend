@@ -208,6 +208,18 @@
   font-weight: 600;
 }
 
+
+.userContainer {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+
+
 /* User Image Container */
 .userImgContainer {
   width: 70px;
