@@ -216,25 +216,13 @@
   justify-content: center;
 }
 
+/* User Image Styles */
 .userImg {
-  width: auto;
-  height: 50px;
-  padding-left: 16px;
-  margin-top: -8px;
-  transition: all .3s ease;
-}
-
-.userImg {
-  width: 50px;
-  height: 50px;
-  object-fit:cover;
-  margin-left: 70px;
-  border-radius: 50%;
-  transition: all .3s ease;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  width: 50px; /* Keeping the width consistent */
+  height: 50px; /* Keeping the height consistent */
+  object-fit: cover; /* Ensure the image covers the area */
+  border-radius: 50%; /* Makes the image circular */
+  transition: all 0.3s ease;
 }
 
 .sidebar.active .userImg{
@@ -539,23 +527,17 @@
   }
 
   .userImg {
-    height: 32px;
-    margin-left: -12px;
-  }
-
-  .sidebar.active .userImg {
-    vertical-align: middle;
-    padding-left: 0;
+    height: 32px; /* Smaller height for mobile */
+    width: 32px; /* Smaller width for mobile */
+    margin-left: -12px; /* Keep margin adjustments */
   }
 
   .userInfo {
-    padding-left: 0px;
-    margin-left: -18px;
-    font-size: 16px;
+    font-size: 14px; /* Adjust font size */
   }
 
   .userStatus {
-    font-size: 10px;
+    font-size: 8px; /* Adjust user status size for smaller screens */
   }
 
   #btn {
