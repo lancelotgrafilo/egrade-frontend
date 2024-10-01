@@ -502,15 +502,20 @@
     height: 50px;
     margin-top: 5px;
   }
-
+  
   .userImg {
     height: 40px;
     width: 40px;
     margin-right: 17px;
   }
 
+  .sidebar.active .userImg{
+    margin-left: 12px;
+  }
+
   .userInfo {
     font-size: 14px;
+    margin-left: 12px;
   }
 
   .userStatus {
