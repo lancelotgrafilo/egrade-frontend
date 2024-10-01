@@ -452,6 +452,42 @@
     width: 50%; /* Set width as a percentage to be more flexible */
     padding: 15px; /* Adjust padding to fit smaller screens */
   }
+
+  .logo {
+    gap: 16px;
+    padding-left: 8px;
+  }
+
+  .sidebar .logo .eGradeLogo{
+    width: 80px;
+    margin-top: 8px;
+  }
+
+  .userContainer {
+    height: 60px;
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .userImg {
+    height: 32px;
+    margin-left: -12px;
+  }
+
+  .sidebar.active .userImg {
+    vertical-align: middle;
+    padding-left: 0;
+  }
+
+  .userInfo {
+    padding-left: 0px;
+    margin-left: -18px;
+    font-size: 16px;
+  }
+  
+  .userStatus {
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -520,7 +556,7 @@
     margin-left: -18px;
     font-size: 16px;
   }
-  
+
   .userStatus {
     font-size: 10px;
   }
