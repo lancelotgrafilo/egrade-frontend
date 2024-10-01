@@ -214,7 +214,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   margin-bottom: 8px;
   margin-top: 12px;
 }
