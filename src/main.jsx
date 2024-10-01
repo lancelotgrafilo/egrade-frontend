@@ -6,10 +6,6 @@ import { PathProvider } from './utils/contexts/PathContext';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createRoot } from 'react-dom/client';
-import axios from 'axios';
-
-// Set the base URL globally for all axios requests
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
