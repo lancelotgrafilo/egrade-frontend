@@ -370,7 +370,7 @@ export function Student() {
                 </select>
               </div>
               <div className={styleStudent.addInput}>
-                <label>Year:</label>
+                <label>Year Level:</label>
                 <select 
                   className={styleStudent.selectInput} 
                   name="year"
