@@ -392,7 +392,7 @@ export function StudentsSettings() {
                     placeholder='School ID:'
                     value={formData.schoolID}
                     onChange={handleChange}
-                    disabled
+                    disabled={!isEditable}
                 />
 
                 

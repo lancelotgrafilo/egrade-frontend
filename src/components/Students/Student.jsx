@@ -322,7 +322,6 @@ export function Student() {
                   name="middle_initial"
                   value={dataStudent.middle_initial}
                   onChange={handleChangeStudent}
-                  required
                 />
               </div>
               <div className={styleStudent.addInput}>
