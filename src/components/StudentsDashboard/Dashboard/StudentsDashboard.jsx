@@ -79,21 +79,32 @@ export function StudentsDashboard() {
       toast.error("User details or subjects are not loaded.");
       return;
     }
-
+  
+    // Debugging logs
+    console.log("Offered Value:", offeredValue);
+    console.log("User Details:", userDetails);
+    console.log("Subjects:", subjects);
+  
+    // Filter the subjects based on the user's department, curriculum_effectivity, and offered value
     const matchedSubjects = subjects.filter(subject => {
-      const offeredMatch = subject?.offered.trim().toLowerCase() === offeredValue.trim().toLowerCase();
-      const departmentMatch = subject?.department.trim().toLowerCase() === userDetails?.course.trim().toLowerCase();
-      const effectiveYearMatch = subject?.effective.trim() === userDetails?.curriculum_effective_year.trim();
-
+      console.log("Checking subject:", subject);
+  
+      // Standardize comparison by trimming and converting to lowercase
+      const offeredMatch = subject?.offered?.trim().toLowerCase() === offeredValue.trim().toLowerCase();
+      const departmentMatch = subject?.department?.trim().toLowerCase() === userDetails?.course?.trim().toLowerCase();
+      const effectiveYearMatch = subject?.effective?.trim() === userDetails?.curriculum_effectivity?.trim();
+  
       return offeredMatch && departmentMatch && effectiveYearMatch;
     });
-
+  
     console.log("Matched Subjects:", matchedSubjects);
-
+  
+    // Set filtered subjects and open the modal
     setFilteredSubjects(matchedSubjects);
     setSelectedCard(offeredValue);
     setIsModalOpen(true);
   };
+  
   
 
   
