@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styleStudent from "./studentsDashboard.module.css";
+import {toast} from "react-toastify";
 import { jwtDecode } from "jwt-decode";
 import useGetStudentDetails from "../../../utils/hooks/studentHooks/useGetStudentDetails";
 import useStudentLookup from "../../../utils/hooks/studentHooks/useStudentLookup";
@@ -75,26 +76,20 @@ export function StudentsDashboard() {
   const handleCardClick = (offeredValue) => {
     if (!userDetails || !subjects) {
       console.error("User details or subjects are not loaded.");
+      toast.error("User details or subjects are not loaded.");
       return;
     }
-  
-    console.log("Offered Value:", offeredValue);
-    console.log("User Details:", userDetails);
-    console.log("Subjects:", subjects);
-  
+
     const matchedSubjects = subjects.filter(subject => {
-      console.log("Checking subject:", subject);
-  
-      // Standardize comparison by trimming and converting to lowercase
       const offeredMatch = subject?.offered.trim().toLowerCase() === offeredValue.trim().toLowerCase();
       const departmentMatch = subject?.department.trim().toLowerCase() === userDetails?.course.trim().toLowerCase();
       const effectiveYearMatch = subject?.effective.trim() === userDetails?.curriculum_effective_year.trim();
-  
+
       return offeredMatch && departmentMatch && effectiveYearMatch;
     });
-  
+
     console.log("Matched Subjects:", matchedSubjects);
-  
+
     setFilteredSubjects(matchedSubjects);
     setSelectedCard(offeredValue);
     setIsModalOpen(true);
