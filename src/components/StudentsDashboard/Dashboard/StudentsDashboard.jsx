@@ -73,24 +73,33 @@ export function StudentsDashboard() {
 
   // Modal handling
   const handleCardClick = (offeredValue) => {
+    if (!userDetails || !subjects) {
+      console.error("User details or subjects are not loaded.");
+      return;
+    }
+  
     console.log("Offered Value:", offeredValue);
     console.log("User Details:", userDetails);
     console.log("Subjects:", subjects);
-
+  
     const matchedSubjects = subjects.filter(subject => {
       console.log("Checking subject:", subject);
-      return (
-        subject?.offered === offeredValue &&
-        subject?.department === userDetails?.course &&
-        subject?.effective === userDetails?.curriculum_effective_year
-      );
+  
+      // Standardize comparison by trimming and converting to lowercase
+      const offeredMatch = subject?.offered.trim().toLowerCase() === offeredValue.trim().toLowerCase();
+      const departmentMatch = subject?.department.trim().toLowerCase() === userDetails?.course.trim().toLowerCase();
+      const effectiveYearMatch = subject?.effective.trim() === userDetails?.curriculum_effective_year.trim();
+  
+      return offeredMatch && departmentMatch && effectiveYearMatch;
     });
-
+  
     console.log("Matched Subjects:", matchedSubjects);
+  
     setFilteredSubjects(matchedSubjects);
     setSelectedCard(offeredValue);
     setIsModalOpen(true);
   };
+  
 
   
 
