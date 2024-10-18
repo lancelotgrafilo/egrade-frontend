@@ -509,13 +509,13 @@ export function UsersList() {
                 </div>
 
                 <div className={styleUsers.editInput}>
-                  <label>Specialization:</label>
+                  <label>Department:</label>
                   <select 
                     type='text' 
                     className={styleUsers.editField}
-                    id='specialization'
-                    name='specialization'
-                    value={dataFaculty.specialization}
+                    id='department'
+                    name='department'
+                    value={dataFaculty.department}
                     onChange={handleChangeFaculty}
                     required
                   >
