@@ -64,14 +64,7 @@ const useFacultySubmit = () => {
     } else {
       setDataFaculty((prev) => ({ ...prev, [name]: value }));
     }
-  };
-  
-
-  // const handleChangeFaculty = (e) => {
-  //   setDataFaculty({ ...dataFaculty, [e.target.name]: e.target.value });
-  // };
-
-  
+  };  
 
   const handleSubmitFaculty = async() => {
     
