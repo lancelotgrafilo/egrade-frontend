@@ -370,6 +370,7 @@ export function Dashboard() {
               className={styleAdmin.dashboardButtons} 
               id={styleAdmin.dashboardButtonSubjects}
               onClick={() => handleNavigation('/admin/subjects', 'subjects')}
+              disabled={!userDetails?.isVerified}
             >
               <span>View Details</span>
               <img src={arrowB} alt="" className={styleAdmin.buttonIcons} />
@@ -390,6 +391,7 @@ export function Dashboard() {
               className={styleAdmin.dashboardButtons} 
               id={styleAdmin.dashboardButtonStudents}
               onClick={() => handleNavigation('/admin/students', 'students')}
+              disabled={!userDetails?.isVerified}
             >
               <span>View Details</span>
               <img src={arrowG} alt="" className={styleAdmin.buttonIcons} />
@@ -410,6 +412,7 @@ export function Dashboard() {
               className={styleAdmin.dashboardButtons} 
               id={styleAdmin.dashboardButtonInstructors}
               onClick={() => handleNavigation('/admin/instructors', 'instructors')}
+              disabled={!userDetails?.isVerified}
             >
               <span>View Details</span>
               <img src={arrowO} alt="" className={styleAdmin.buttonIcons} />
@@ -430,6 +433,7 @@ export function Dashboard() {
               className={styleAdmin.dashboardButtons} 
               id={styleAdmin.dashboardButtonActiveUsers}
               onClick={() => handleNavigation('/admin/activeUsers', 'activeUsers')}
+              disabled={!userDetails?.isVerified}
             >
               <span>View Details</span>
               <img src={arrowR} alt="" className={styleAdmin.buttonIcons} />
