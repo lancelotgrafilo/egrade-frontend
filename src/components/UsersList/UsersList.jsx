@@ -9,6 +9,7 @@ import { createRipple } from '../../utils/effects/ripple'
 import useAdminSubmit from "../../utils/hooks/adminHooks/usePostAdminSubmit";
 import useCollegeSubmit from '../../utils/hooks/usePostCollegeSubmit';
 import useFacultySubmit from '../../utils/hooks/facultyStaffHooks/usePostFacultySubmit';
+import useGetDepartments from '../../utils/hooks/departmentHooks/useGetDepartments';
 
 export function UsersList() {
   const { users, loading, error, refetch } = useGetAllUsers();
@@ -54,6 +55,8 @@ export function UsersList() {
       user.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
   };
+
+  const { departments } = useGetDepartments();
 
 
   const [isAdminModalOpen, setAdminModalOpen] = useState(false);
@@ -520,8 +523,9 @@ export function UsersList() {
                     required
                   >
                     <option value=""></option>
-                    <option value="BSCS">BSCS</option>
-                    <option value="BSIS">BSIS</option>
+                    {departments.map(dept => (
+                      <option key={dept._id} value={dept.department}>{dept.department}</option>
+                    ))}
                   </select> 
                 </div>
 
