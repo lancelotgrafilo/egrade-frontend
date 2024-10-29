@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styleDocs from './documents.module.css';
 import { useGetFiles } from '../../utils/hooks/DocumentsHooks/useGetFiles';
 
-const backendUrl = 'http://localhost:5000'; // Define the backend URL
+const backendUrl = 'https://egrade-backend.onrender.com'; // Define the backend URL
 
 import useGetDepartments from '../../utils/hooks/departmentHooks/useGetDepartments';
 import useAcademicYears from '../../utils/hooks/academicYearHooks/useAcademicYears';
