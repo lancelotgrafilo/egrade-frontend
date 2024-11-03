@@ -4,8 +4,8 @@ import eGradeLogo from '../../assets/images/eGradeLogo-nobg.png';
 import styleLoginPage from './loginPage.module.css';
 import pageDivider from '../../assets/images/bottomwave.svg';
 import userIcon from '../../assets/icons/user-solid-24.png';
-import eyeIcon from '../../assets/icons/eyeIcon.png'; // Add an eye icon for visibility toggle
-import eyeSlashIcon from '../../assets/icons/eyeSlashIcon.png'; // Add an eye-slash icon for hiding password
+import eyeIcon from '../../assets/icons/eyeIcon.png'; 
+import eyeSlashIcon from '../../assets/icons/eyeSlashIcon.png'; 
 import useLogin from '../../utils/hooks/useLogin';
 import {toast} from 'react-toastify';
 
@@ -84,7 +84,7 @@ export function LoginPage() {
               </div>
               <div className={styleLoginPage.inputBox}>
                 <input
-                  type={showPassword ? "text" : "password"} // Toggle between text and password input
+                  type={showPassword ? "text" : "password"}
                   id='password'
                   name='password'
                   value={data.password}
@@ -98,7 +98,7 @@ export function LoginPage() {
                   type="button" 
                   className={styleLoginPage.togglePasswordButton} 
                   onClick={togglePasswordVisibility}
-                  aria-label={showPassword ? "Hide password" : "Show password"} // Accessibility
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   <img src={showPassword ? eyeIcon : eyeSlashIcon} alt="" />
                 </button>

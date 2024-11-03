@@ -18,8 +18,7 @@ export function StudentsDashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState("");
   const [filteredSubjects, setFilteredSubjects] = useState([]);
-
-  // Extract userId from JWT token
+  
   const token = localStorage.getItem("token");
   let userId = "";
 
@@ -96,10 +95,6 @@ export function StudentsDashboard() {
     setSelectedCard(offeredValue);
     setIsModalOpen(true);
   };
-  
-  
-
-  
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -119,7 +114,6 @@ export function StudentsDashboard() {
     setSelectedSemester('');
   };
 
-  // Use escape to close modals
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -188,7 +182,6 @@ export function StudentsDashboard() {
         </div>
 
         <div className={styleStudent.cardContainer}>
-          {/* Conditionally render year cards based on filters */}
           <div className={styleStudent.yearContainer}>
             {(!selectedYearLevel || selectedYearLevel === "1") && (!selectedSemester || selectedSemester === "1st") && (
               <div
@@ -306,12 +299,10 @@ export function StudentsDashboard() {
                 </thead>
                 <tbody>
                   {filteredSubjects.map((subject, index) => {
-                    // Find the subject in the user's subjects
                     const studentSubject = userDetails?.grades.flatMap(grade => grade.subjects).find(
                       (studSub) => studSub.subject_code === subject.subject_code
                     );
 
-                    // Handle removal documentation if applicable
                     const removalDoc = removalCompleteData?.find(
                       (doc) =>
                         doc.last_name === userDetails?.last_name &&
@@ -320,8 +311,7 @@ export function StudentsDashboard() {
                         doc.subject.trim() === studentSubject?.subject_code.trim()
                     );
 
-                    // Get final grade and any ratings from the removal document
-                    const finalGrade = studentSubject?.FINAL_GRADE ?? ''; // Default to 'N/A' if no grade found
+                    const finalGrade = studentSubject?.FINAL_GRADE ?? ''; 
                     const ratingObtained = removalDoc?.rating_obtained ? ` / ${removalDoc.rating_obtained}` : '';
 
                     return (
