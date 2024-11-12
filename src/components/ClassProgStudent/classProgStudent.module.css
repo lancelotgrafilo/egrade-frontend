@@ -1,7 +1,3 @@
-
-
-
-
 .backBtnContainer{
   width: 30px;
   height: 30px;
@@ -17,7 +13,6 @@
   border: none;
   cursor: pointer;
 }
-
 
 .studentInfo{
   display: flex;
@@ -92,9 +87,6 @@
 .searchInputAdd{
   margin-bottom: 4px;
 }
-
-
-
 /* ============================================== TABLE ==================================== */
 .tableContainer {
   width: 100%;
@@ -331,7 +323,7 @@
    100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
 }
 @keyframes l20-2{ 
-  0%    {transform:scaleY(1)  rotate(0deg)}
+  0%    { transform:scaleY(1)  rotate(0deg); -webkit-transform:scaleY(1)  rotate(0deg); -moz-transform:scaleY(1)  rotate(0deg); -ms-transform:scaleY(1)  rotate(0deg); -o-transform:scaleY(1)  rotate(0deg); }
   49.99%{transform:scaleY(1)  rotate(135deg)}
   50%   {transform:scaleY(-1) rotate(0deg)}
   100%  {transform:scaleY(-1) rotate(-135deg)}

@@ -318,13 +318,6 @@
   100%  {transform:scaleY(-1) rotate(-135deg)}
 }
 
-
-
-
-
-
-
-
 @media (min-width: 100px) and (max-width: 500px) {
   .spanSubject,
   .spanInstructor{

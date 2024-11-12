@@ -5,7 +5,6 @@ import deleteIcon from '../../assets/icons/delete.png';
 import backArrow from '../../assets/icons/back.png';
 import addIcon from '../../assets/icons/add.png';
 import {toast} from 'react-toastify';
-
 import useGetStudentById from '../../utils/hooks/studentHooks/useGetStudentById';
 import usePostAddStudentSubject from '../../utils/hooks/studentHooks/usePostAddStudentSubject';
 import useDeleteStudentSubject from '../../utils/hooks/studentHooks/useDeleteStudentSubject';

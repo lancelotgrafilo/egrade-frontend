@@ -2,8 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import { usePath } from '../../utils/contexts/PathContext'; // Adjust the path to your context file
 import { ActiveButtonContext } from '../../utils/contexts/ActiveButtonContext';
 import styleHeaderDashboard from './headerDashboard.module.css';
-// import notifBell from '../../assets/icons/bell.png';
-
 import dashboardIcon from '../../assets/icons/meterB.png';
 import bookmark from '../../assets/icons/bookmarkB.png';
 import subjectIcon from '../../assets/icons/boxesB.png';
@@ -19,21 +17,6 @@ import files from '../../assets/icons/filesB.png';
 export function HeaderDashboard() {
   const { activeButton } = useContext(ActiveButtonContext);
   const { currentPath, subPath, updatePath } = usePath();
-  // const [isDropdownVisible, setDropdownVisible] = useState(false);
-  // const [notifications, setNotifications] = useState([]);
-
-  // useEffect(() => {
-  //   fetchNotifications().then((data) => {
-  //     setNotifications(data);
-  //   });
-  // }, []);
-
-  // const fetchNotifications = async () => {
-  //   return [
-  //     { id: 1, text: 'New message from John' },
-  //     { id: 2, text: 'You have a new task assigned' },
-  //   ];
-  // };
 
   const renderPath = () => {
     let mainPath;
@@ -137,14 +120,6 @@ export function HeaderDashboard() {
     }
   };
 
-  // const handleNotificationClick = () => {
-  //   setDropdownVisible(!isDropdownVisible);
-  // };
-
-  // const handleNotificationItemClick = (id) => {
-  //   console.log(`Notification ${id} clicked`);
-  // };
-
   return (
     <div className={styleHeaderDashboard.headerDashboardContainer}>
       <div className={styleHeaderDashboard.dashboardHeader}>
@@ -152,24 +127,7 @@ export function HeaderDashboard() {
           <h1>{renderHeading()}</h1>
         </div>
         <div className={styleHeaderDashboard.dashboardWelcome}>
-          {/* <div className={styleHeaderDashboard.wrapper} data-number="1">
-            <button onClick={handleNotificationClick} className={styleHeaderDashboard.notifBtns}>
-              <img src={notifBell} alt="bell" className={styleHeaderDashboard.bellIcon} />
-            </button>
-            {isDropdownVisible && (
-              <div className={styleHeaderDashboard.dropdown}>
-                {notifications.length > 0 ? (
-                  notifications.map((notification) => (
-                    <div key={notification.id} onClick={() => handleNotificationItemClick(notification.id)}>
-                      {notification.text}
-                    </div>
-                  ))
-                ) : (
-                  <div>No new notifications</div>
-                )}
-              </div>
-            )}
-          </div> */}
+          
         </div>
       </div>
 

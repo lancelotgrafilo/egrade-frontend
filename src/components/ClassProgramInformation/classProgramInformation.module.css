@@ -358,25 +358,6 @@
   100%  {transform:scaleY(-1) rotate(-135deg)}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @keyframes slideRight {
   0% {
     transform: translateX(-100px);

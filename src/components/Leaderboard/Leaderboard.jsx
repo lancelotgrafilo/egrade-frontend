@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styleLeaderboard from './leaderboard.module.css';
 import useGetLeaderboard from '../../utils/hooks/leaderboardHooks/useGetLeaderboard';
-
 import useGetDepartments from '../../utils/hooks/departmentHooks/useGetDepartments';
 import useAcademicYears from '../../utils/hooks/academicYearHooks/useAcademicYears';
 import useSemester from '../../utils/hooks/semesterHooks/useSemester';
