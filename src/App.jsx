@@ -150,7 +150,7 @@ export default function App() {
           </Route>
 
           {/* Catch-all Route for 404 */}
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>
     </AppProviders>
