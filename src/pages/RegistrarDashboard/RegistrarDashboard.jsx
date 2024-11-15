@@ -3,10 +3,8 @@ import { Outlet, Link } from 'react-router-dom';
 import styleRegistrar from './registrarDashboard.module.css';
 import eGradeLogo from '../../assets/images/eGradeLogo-removebg-preview.png';
 import dashboard from '../../assets/icons/meterW.png';
-import bookmark from '../../assets/icons/bookmark.png';
-import boxes from '../../assets/icons/boxes.png';
-import instructorIcon from '../../assets/icons/user_list.png';
-import studentIcon from '../../assets/icons/users.png';
+import tor from '../../assets/icons/tor.png';
+import cert from '../../assets/icons/cert.png';
 import leaderboard from '../../assets/icons/leaderboard.png';
 import settings from '../../assets/icons/settings.png';
 import menu from '../../assets/icons/menu1.png';
@@ -85,10 +83,8 @@ export function RegistrarDashboard() {
         <ul className={styleRegistrar.sidebarMenu}>
           {[
             { to: 'dashboard', label: 'Dashboard', icon: dashboard, btnId: 'dashboard' },
-            { to: 'classProgramInformation', label: 'Class Program Information', icon: bookmark, btnId: 'classProgram' },
-            { to: 'subjects', label: 'Subjects', icon: boxes, btnId: 'subjects' },
-            { to: 'instructors', label: 'Instructors', icon: instructorIcon, btnId: 'instructors' },
-            { to: 'students', label: 'Students', icon: studentIcon, btnId: 'students' },
+            { to: 'tor', label: 'Transcript of Records (TOR)', icon: tor, btnId: 'tor' },
+            { to: 'certifications', label: 'Certifications', icon: cert, btnId: 'certifications' },
             { to: 'leaderboard', label: 'Leaderboard', icon: leaderboard, btnId: 'leaderboard' },
             { to: 'settings', label: 'Settings', icon: settings, btnId: 'settings' },
           ].map(({ to, label, icon, btnId }, index) => (
