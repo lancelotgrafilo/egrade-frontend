@@ -10,6 +10,7 @@ import useAdminSubmit from "../../utils/hooks/adminHooks/usePostAdminSubmit";
 import useCollegeSubmit from '../../utils/hooks/usePostCollegeSubmit';
 import useFacultySubmit from '../../utils/hooks/facultyStaffHooks/usePostFacultySubmit';
 import useGetDepartments from '../../utils/hooks/departmentHooks/useGetDepartments';
+import useRegistrarSubmit from '../../utils/hooks/registrarStaffHooks/usePostRegistrarSubmit';
 
 export function UsersList() {
   const { users, loading, error, refetch } = useGetAllUsers();
@@ -62,11 +63,13 @@ export function UsersList() {
   const [isAdminModalOpen, setAdminModalOpen] = useState(false);
   const [isCollegeModalOpen, setCollegeModalOpen] = useState(false);
   const [isFacultyModalOpen, setFacultyModalOpen] = useState(false);
+  const [isRegistrarModalOpen, setRegistrarModalOpen] = useState(false);
   const [submissionType, setSubmissionType] = useState(null);
 
 
   const { dataAdmin, handleChangeAdmin, handleSubmitAdmin, resetAdminForm, isAdminLoading } = useAdminSubmit();
   const { dataCollege, handleChangeCollege, handleSubmitCollegeStaff, resetCollegeForm, isCollegeStaffLoading } = useCollegeSubmit();
+  const { dataRegistrar, handleChangeRegistrar, handleSubmitRegistrarStaff, resetRegistrarForm, isRegistrarStaffLoading } = useRegistrarSubmit();
   const { dataFaculty, handleChangeFaculty, handleSubmitFaculty, resetFacultyForm, isFacultyStaffLoading } = useFacultySubmit();
 
   const handleSave = async (e) => {
@@ -84,6 +87,10 @@ export function UsersList() {
           break;
         case 'faculty':
           await handleSubmitFaculty();
+          resetFacultyForm();
+          break;
+        case 'registrar':
+          await handleSubmitRegistrarStaff();
           resetFacultyForm();
           break;
         default:
@@ -115,10 +122,16 @@ export function UsersList() {
     setFacultyModalOpen(true);
   };
 
+  const handleAddRegistrarClick = () => {
+    setSubmissionType('registrar');
+    setRegistrarModalOpen(true);
+  };
+
   const handleCloseModal = () => {
     setAdminModalOpen(false);
     setCollegeModalOpen(false);
     setFacultyModalOpen(false);
+    setRegistrarModalOpen(false);
 
     // Reset specific form states
     if (submissionType === 'admin') {
@@ -127,6 +140,9 @@ export function UsersList() {
     } else if (submissionType === 'college') {
       // Reset college form fields
       resetCollegeForm();
+    } else if (submissionType === 'registrar') {
+      // Reset registrar form fields
+      resetRegistrarForm();
     } else if (submissionType === 'faculty') {
       // Reset faculty form fields
       resetFacultyForm();
@@ -174,7 +190,7 @@ export function UsersList() {
           <button type='button' className={styleUsers.addNewUserBtn} onClick={handleAddFacultyClick}>
             Faculty Staff
           </button>
-          <button type='button' className={styleUsers.addNewUserBtn} onClick={handleAddFacultyClick}>
+          <button type='button' className={styleUsers.addNewUserBtn} onClick={handleAddRegistrarClick}>
             Registrar Staff
           </button>
         </div>
@@ -427,6 +443,87 @@ export function UsersList() {
                   disabled={isCollegeStaffLoading}
                 >
                   {isCollegeStaffLoading ? (
+                      <div className={styleUsers.loader}></div> 
+                    ) : (
+                      "Save"
+                    )
+                  }
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      }
+
+      {isRegistrarModalOpen && 
+        <div className={styleUsers.modalOverlay}>
+          <div className={styleUsers.modal}>
+            <h2>Add New Registrar Staff</h2>
+            <form onSubmit={handleSave}>
+              <div className={styleUsers.editInput}>
+                <label>Email:</label>
+                <div className={styleUsers.inputWithButton}>
+                  <input 
+                    id='email' 
+                    name='email'
+                    type='email' 
+                    className={styleUsers.editField} 
+                    value={dataRegistrar.email}
+                    onChange={(e)=> {
+                      handleChangeRegistrar(e);
+                    }}
+                    required 
+                  />
+                </div>
+              </div>
+
+              <div className={styleUsers.editInput}>
+                <label>Last Name:</label>
+                <input 
+                  type='text' 
+                  className={styleUsers.editField}
+                  id='last_name' 
+                  name='last_name'
+                  value={dataRegistrar.last_name}
+                  onChange={handleChangeRegistrar}
+                  required 
+                />
+              </div>
+
+              <div className={styleUsers.editInput}>
+                <label>First Name:</label>
+                <input 
+                  type='text' 
+                  className={styleUsers.editField}
+                  id='first_name' 
+                  name='first_name'
+                  value={dataRegistrar.first_name}
+                  onChange={handleChangeRegistrar}
+                  required 
+                />
+              </div>
+
+              <div className={styleUsers.editInput}>
+                <label>Middle Initial:</label>
+                <input 
+                  type='text' 
+                  className={styleUsers.editField}
+                  id='middle_initial' 
+                  name='middle_initial'
+                  value={dataRegistrar.middle_initial}
+                  onChange={handleChangeRegistrar}
+                  required
+                />
+              </div>
+
+              <div className={styleUsers.btnRow}>
+                <button type="button" className={styleUsers.cancelBtn} onClick={handleCloseModal}>Close</button>
+                <button 
+                  type="submit" 
+                  className={styleUsers.saveBtn}
+                  disabled={isRegistrarStaffLoading}
+                >
+                  {isRegistrarStaffLoading ? (
                       <div className={styleUsers.loader}></div> 
                     ) : (
                       "Save"
