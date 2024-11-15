@@ -174,6 +174,9 @@ export function UsersList() {
           <button type='button' className={styleUsers.addNewUserBtn} onClick={handleAddFacultyClick}>
             Faculty Staff
           </button>
+          <button type='button' className={styleUsers.addNewUserBtn} onClick={handleAddFacultyClick}>
+            Registrar Staff
+          </button>
         </div>
         
       </div>
