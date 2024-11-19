@@ -41,6 +41,9 @@ const useLogin = () => {
             case 'college_staff':
               navigate('/collegeStaff');
               break;
+            case 'registrar_staff':
+              navigate('/collegeStaff');
+              break;
             default:
               setError("Invalid user title");
               console.log("Invalid title:", title); // Debugging line
