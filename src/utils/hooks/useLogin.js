@@ -42,7 +42,7 @@ const useLogin = () => {
               navigate('/collegeStaff');
               break;
             case 'registrar_staff':
-              navigate('/collegeStaff');
+              navigate('/registrarStaff');
               break;
             default:
               setError("Invalid user title");
