@@ -11,7 +11,7 @@ import { jwtDecode } from 'jwt-decode';
 import { useAnnouncements } from '../../../utils/hooks/announcementHooks/useAnnouncement';
 import useGetFacultyDetails from '../../../utils/hooks/facultyStaffHooks/useGetFacultyDetails';
 
-export function DashboardFaculty() {
+export function DashboardRegistrar() {
   const navigate = useNavigate();
   const { updateActiveButton } = useContext(ActiveButtonContext);
   const { announcements } = useAnnouncements();
