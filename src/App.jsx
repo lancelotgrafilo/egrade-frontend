@@ -22,6 +22,7 @@ import { ActivityLogHistory } from './components/ActivityLogHistory/ActivitiyLog
 import { Settings } from './components/Settings/Settings';
 import { SettingsFaculty } from './components/FacultyStaff/SettingsFaculty/SettingsFaculty';
 import { Dashboard } from './components/Dashboard/Dashboard';
+import { DashboardRegistrar } from './components/RegistrarStaff/Dashboard/DashboardRegistrar';
 import { DashboardFaculty } from './components/FacultyStaff/Dashboard/DashboardFaculty';
 import { StudentSubject } from './components/StudentSubject/StudentSubject';
 import { ActiveUsers } from './components/ActiveUsers/ActiveUsers';
@@ -131,8 +132,8 @@ export default function App() {
           {/* Registrar Staff Route */}
           <Route path="/registrarStaff" element={<ProtectedRoute element={<RegistrarDashboard />} isAuthenticated={isAuthenticated} requiredTitle="registrar_staff" />}>
             <Route index element={<Navigate to="dashboard" />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="classProgramInformation" element={<ClassProgramInformation />} />
+            <Route path="dashboard" element={<DashboardRegistrar />} />
+            <Route path="tor" element={<ClassProgramInformation />} />
             <Route path="classProgramInformation/instructor/:id" element={<ClassProgInstructor />} />
             <Route path="classProgramInformation/students/:id" element={<ClassProgStudent />} />
             <Route path="subjects" element={<Subjects />} />
