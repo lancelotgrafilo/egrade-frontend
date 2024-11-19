@@ -17,6 +17,7 @@ import { usePath } from '../../utils/contexts/PathContext';
 import axios from 'axios';
 import useGetFacultyDetails from '../../utils/hooks/facultyStaffHooks/useGetFacultyDetails';
 import {toast} from 'react-toastify';
+
 export function FacultyDashboard() {
   const { activeButton, updateActiveButton } = useContext(ActiveButtonContext);
   const [isActive, setIsActive] = useState(false);
@@ -83,7 +84,8 @@ export function FacultyDashboard() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('activeButton');
-    window.location.href = '/login'; // Redirect to login page or wherever you need
+    window.location.href = '/'; // Redirect to login page or wherever you need
+    console.log('Logged out successfully');
   };
 
   const handleHover = (isHovered) => {

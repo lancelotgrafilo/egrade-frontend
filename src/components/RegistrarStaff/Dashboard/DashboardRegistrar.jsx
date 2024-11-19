@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { ActiveButtonContext } from '../../../utils/contexts/ActiveButtonContext';
 import { jwtDecode } from 'jwt-decode';
 import { useAnnouncements } from '../../../utils/hooks/announcementHooks/useAnnouncement';
-import useGetFacultyDetails from '../../../utils/hooks/facultyStaffHooks/useGetFacultyDetails';
+import useGetRegistrarDetails from '../../../utils/hooks/registrarStaffHooks/useGetRegistrarDetails';
 
 export function DashboardRegistrar() {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export function DashboardRegistrar() {
     }
   }
 
-  const { userDetails, loading, error } = useGetFacultyDetails(userId);
+  const { userDetails, loading, error } = useGetRegistrarDetails(userId);
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {

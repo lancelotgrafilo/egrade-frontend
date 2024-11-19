@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode'; 
 import styleRegistrar from './registrarDashboard.module.css';
 import eGradeLogo from '../../assets/images/eGradeLogo-removebg-preview.png';
 import dashboard from '../../assets/icons/meterW.png';
@@ -13,12 +14,32 @@ import logout from '../../assets/icons/logout.png';
 import { HeaderDashboard } from '../../components/HeaderDashboard/HeaderDashboard';
 import { ActiveButtonContext } from '../../utils/contexts/ActiveButtonContext';
 import { usePath } from '../../utils/contexts/PathContext';
+import useGetRegistrarDetails from '../../utils/hooks/registrarStaffHooks/useGetRegistrarDetails';
+import { axios } from 'axios';
+import {toast} from 'react-toastify';
 
 export function RegistrarDashboard() {
   const { activeButton, updateActiveButton } = useContext(ActiveButtonContext);
   const [isActive, setIsActive] = useState(false);
 
   const sidebarMenuRefs = useRef([]);
+
+  
+  const { userDetails, loading, error } = useGetRegistrarDetails(userId);
+
+  // Extract userId from JWT token
+  const token = localStorage.getItem("token");
+  let userId = "";
+  let id = "";
+  if (token) {
+    try {
+      const decodedToken = jwtDecode(token);
+      userId = decodedToken.id; // Ensure this matches your token's structure
+      id = decodedToken.userId;
+    } catch (error) {
+      console.error("Failed to decode token:", error);
+    }
+  }
 
   // Access the path context
   const { updatePath } = usePath();
@@ -48,12 +69,61 @@ export function RegistrarDashboard() {
     setLogoutModalOpen(true);
   };
 
-  const handleConfirmLogout = () => {
+  useEffect(() => {
+    const validateToken = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          // If your backend has a way to verify the token, make a request to validate it
+          const decodedToken = jwtDecode(token);
+          const currentTime = Date.now() / 1000; // Get current time in seconds
+          if (decodedToken.exp < currentTime) {
+            // Token expired, clear localStorage
+            console.warn("Token expired, logging out.");
+            handleLogout();
+          }
+        } catch (error) {
+          console.error("Invalid token, clearing localStorage.", error);
+          handleLogout();
+        }
+      } else {
+        // No token found, ensure proper login flow
+        handleLogout();
+      }
+    };
+  
+    validateToken();
+  }, []);
+
+  const handleLogout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('activeButton');
     localStorage.removeItem('user');
-    window.location.href = '/'; // Navigate to home page
+    localStorage.removeItem('activeButton');
+    window.location.href = '/'; // Redirect to login page or wherever you need
     console.log('Logged out successfully');
+  };
+
+  const handleConfirmLogout = async () => {
+    try {
+
+      // Update isActive to false
+      await axios.patch(`https://egrade-backend.onrender.com/api/update-registrar-staff-status/${userId}`, { isActive: false });
+  
+      // Call the server-side API to log the activity
+      await axios.post('https://egrade-backend.onrender.com/api/logout-activity', { 
+        userID: id, 
+        activityDescription: 'logged out'
+      });
+
+      // Proceed with logging out
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      localStorage.removeItem('activeButton');
+      window.location.href = '/'; // Navigate to home page
+      toast.success('Logged out successfully');
+    } catch (error) {
+      console.error('Error logging activity during logout:', error);
+    }
   };
 
   // Set paths to null on list item click
@@ -75,8 +145,14 @@ export function RegistrarDashboard() {
             <img src={userImg} alt="user_icon" className={styleRegistrar.userImg} />
           </div>
           <div className={styleRegistrar.userInfo}>
-            <p className={styleRegistrar.userName}>Lancelot</p>
-            <p className={styleRegistrar.userStatus}>Registrar Staff</p>
+            {loading && <p>Loading...</p>}
+            {error && <p>Error fetching user details.</p>}
+            {userDetails && (
+              <>
+                <p className={styleRegistrar.userName}>{userDetails.first_name} {userDetails.last_name}</p>
+                <p className={styleRegistrar.userStatus}>{userDetails.title}</p>
+              </>
+            )}
           </div>
         </div>
 
