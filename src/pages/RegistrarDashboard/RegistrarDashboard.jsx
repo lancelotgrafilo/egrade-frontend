@@ -15,7 +15,7 @@ import { HeaderDashboard } from '../../components/HeaderDashboard/HeaderDashboar
 import { ActiveButtonContext } from '../../utils/contexts/ActiveButtonContext';
 import { usePath } from '../../utils/contexts/PathContext';
 import useGetRegistrarDetails from '../../utils/hooks/registrarStaffHooks/useGetRegistrarDetails';
-import { axios } from 'axios';
+import axios from 'axios';
 import {toast} from 'react-toastify';
 
 export function RegistrarDashboard() {
