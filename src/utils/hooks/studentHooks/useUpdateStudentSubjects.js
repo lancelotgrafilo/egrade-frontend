@@ -43,7 +43,7 @@ const useUpdateStudentSubjects = (userId, matchedStudents) => {
 
         if (uniqueSubjects.length > 0) {
           // Add only unique new subjects
-          await axios.post(`/api/students/${userId}/add-subjects`, { subjects: uniqueSubjects });
+          await axios.post(`https://egrade-backend.onrender.com/api/students/${userId}/add-subjects`, { subjects: uniqueSubjects });
         }
       } catch (err) {
         setError(err);

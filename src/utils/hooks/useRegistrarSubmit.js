@@ -59,7 +59,7 @@ const useRegistrarSubmit = () => {
     setIsRegistrarStaffLoading(true);
 
     try {
-      const response = await axios.post("/api/registrar_staff", {
+      const response = await axios.post("https://egrade-backend.onrender.com/api/registrar_staff", {
         email: dataRegistrar.email,
         last_name: dataRegistrar.last_name,
         first_name: dataRegistrar.first_name,

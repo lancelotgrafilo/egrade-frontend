@@ -20,7 +20,7 @@ export const useGetAllUsers = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get('/api/get_users');
+      const response = await axios.get('https://egrade-backend.onrender.com/api/get_users');
       const sortedUsers = sortByLastName(response.data);
       setUsers(sortedUsers);
       toast.info("👥 User data loaded successfully!");
