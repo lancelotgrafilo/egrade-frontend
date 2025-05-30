@@ -12,7 +12,7 @@ export function useGetFiles() {
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const response = await axios.get('/api/files');
+        const response = await axios.get('https://egrade-backend.onrender.com/api/files');
         setFiles(response.data);
         // Set hasNotified to true after files are successfully fetched
         setHasNotified(true);

@@ -11,7 +11,7 @@ const useGetInstructorsLoadById = (instructorId) => {
 
     setLoading(true); // Set loading to true when refetching
     try {
-      const response = await axios.get(`/api/get_instructors_load_student/${instructorId}`);
+      const response = await axios.get(`https://egrade-backend.onrender.com/api/get_instructors_load_student/${instructorId}`);
       setInstructorsLoad(response.data.load || []); // Set the load data
       setError(null); // Reset any previous errors
     } catch (err) {

@@ -12,7 +12,7 @@ const useEmailSuccess = () => {
     setIsEmailSuccessLoading(true);
     setError(null);
     try {
-      const response = await axios.post('/api/post_send_email_success_msg', data);
+      const response = await axios.post('https://egrade-backend.onrender.com/api/post_send_email_success_msg', data);
       setLoading(false);
       return response.data;
     } catch (err) {

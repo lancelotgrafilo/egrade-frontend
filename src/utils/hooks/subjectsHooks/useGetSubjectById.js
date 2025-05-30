@@ -9,7 +9,7 @@ const useGetSubjectById = (subjectId) => {
   const fetchClassProgramById = useCallback(async () => {
     if (subjectId !== null) { // Only fetch if the ID is set
       try {
-        const response = await axios.get(`/api/get_subject/${subjectId}`);
+        const response = await axios.get(`https://egrade-backend.onrender.com/api/get_subject/${subjectId}`);
         setSubjectById(response.data);
       } catch (error) {
         setErrorSubjectById(error);
