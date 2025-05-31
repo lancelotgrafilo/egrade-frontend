@@ -36,3 +36,19 @@ This application is built using a modern and scalable full-stack technology suit
 ---
 
 > 🙌 Thank you for exploring **eGrade Navigator** — where academic clarity meets technological innovation.
+
+---
+
+### 👥 Try with Sample Accounts
+
+To explore the platform, log in using one of the predefined roles below:
+
+**🎓 Student Account**  
+📧 Email: `studentsample@gmail.com`  
+🔐 Password: `Password1#`
+
+**🧑‍🏫 Instructor Account**  
+📧 Email: `instructorsample@gmail.com`  
+🔐 Password: `Password2#`
+
+> 🔐 These credentials are for demo purposes only. Feel free to test the system and experience the interface from either a student or instructor perspective.
